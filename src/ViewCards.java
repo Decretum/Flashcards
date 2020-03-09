@@ -16,6 +16,7 @@ public class ViewCards {
 	JFileChooser fileChooser;
 	JButton middleButton;
 	JButton cardButton;
+	JButton choose;
 	List<Card> deck;
 	FileReader fileReader;
 	Scanner scanner;
@@ -42,7 +43,7 @@ public class ViewCards {
 		JButton previous = new JButton(new ImageIcon(PREVIOUS_PNG));
 		previous.addActionListener(ae -> previousCard());
 		cardButton = new JButton("O++O");
-		JButton choose = new JButton("Deck Selection");
+		choose = new JButton("Deck Selection");
 		choose.addActionListener(ae -> chooseCardSet());
 		frame.add(middleButton);
 		frame.add(next, BorderLayout.EAST);
@@ -109,6 +110,7 @@ public class ViewCards {
 		index = 0;
 		middleButton.setText(deck.get(index).getText());
 		cardButton.setText((index + 1) + "/" + deck.size());
+		choose.setText(fileChooser.getSelectedFile().getName());
 	}
 
 	private void previousCard() {
